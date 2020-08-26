@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Comprar</h1>
+{% if form.errors %}
+<div class="errors">
+    {% for f in form %}
+        {% if f.errors %}
+        {{ f.name }}
+        <ul>
+            {% for e in f.errors %}
+                <li>{{e}}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}
+
+<form method="POST" action="/agregar">
+    {{ form.csrf_token }}
+    {{ form.nombre.label }}{{ form.nombre }}
+    <br>
+    {{ form.cantidad.label }}{{ form.cantidad }}
+    <br>
+    <input type="submit" value="Comprar">
+</form>
+{% endblock %}

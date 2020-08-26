@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Mi carrito</h1>
+
+        <ul>
+            {% for c in productos %}    
+            <li>{{c.nombre}}: {{c.cantidad}}</li>
+            {% endfor %}
+        </ul>
+        Contador de productos totales: {{productos|sum(attribute='cantidad')}}
+
+       
+
+{% endblock %}
